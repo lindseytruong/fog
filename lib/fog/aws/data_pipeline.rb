@@ -104,7 +104,7 @@ module Fog
             'Content-Type' => 'application/x-amz-json-1.1',
             'Content-Length' => params[:body].bytesize.to_s,
           }.merge!(params[:headers] || {})
-          params[:headers]['x-amz-security-token'] = @aws_session_token if @aws_session_token
+          params[:headers]['X-Amz-Security-Token'] = @aws_session_token if @aws_session_token
           params[:headers]['Authorization'] = @signer.sign(params, date)
 
           response = @connection.request(params)
